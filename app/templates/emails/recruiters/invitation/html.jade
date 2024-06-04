@@ -1,0 +1,15 @@
+extends  ../../../layout
+
+block content
+    h3 #{title}
+    p
+        | To start referring candidates and make money with our platform, you need to sign up using
+        |  this email: #{invitation.email}.
+    p You can use your Gmail or linkedIn as long as you use the same email as in Workable.
+    a(target="_blank",href=invitationUrl, class="button")  Sign-up
+
+    p If something is wrong with the button you can copy the following url in your browser : #{invitationUrl}
+    p
+        | Should you notice anything wrong or have any feedback about the app, please email us to
+        a(href='mailto:recruiters.support@visage.ae')  recruiters.support@visage.ae
+    p Thank you for using Visage.

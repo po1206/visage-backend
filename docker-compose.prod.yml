@@ -1,0 +1,25 @@
+elasticsearch:
+  image: jpetazzo/hamba:latest
+  command: 9200 {{HOST_ELASTIC_SEARCH}} {{PORT_ELASTIC_SEARCH}}
+mongo-visage:
+  image: jpetazzo/hamba:latest
+  command: 27017 {{HOST_MONGO}} {{PORT_MONGO}}
+web:
+  image: visage/visage-api:{{VERSION_NUMBER}}
+  ports:
+    - "80:3000"
+  depends_on:
+    - mongo-visage
+    - elasticsearch
+  links:
+    - mongo-visage
+    - elasticsearch
+  command:
+    - node
+    - /usr/src/app/bin/www
+  environment:
+    - PORT=3000
+    - NODE_ENV=production
+    - NODE_PATH=/usr/src
+    - AWS_ACCESS_KEY_ID={{PROD_AWS_ACCESS_KEY_ID}}
+    - AWS_SECRET_ACCESS_KEY={{PROD_AWS_SECRET_ACCESS_KEY}}

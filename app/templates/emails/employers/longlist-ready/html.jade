@@ -1,0 +1,27 @@
+extends  ../../../layout
+
+block content
+    p Our crowd of recruiters found the perfect matches for your job opening !
+    a(target="_blank" href=jobsEmpBaseURL + "/" + job._id + "/candidates/Approved", class="button")  Review crowsourced candidates
+    p Review their CV on Visage, contact them directly using their email or download the full list to feed your applicants tracking system.
+
+    p
+        | If you have any trouble reviewing the shortlist, contact our support directly in app with the live chat feature or reach out at
+        = ' '
+        a(href='mailto:team@visage.ae')  team@visage.ae
+        | .
+
+    h3
+        span(class="critical") Important:
+    ul
+        li
+            | These candidates have not been contacted by Visage.
+            span(class="emphasis")  They are not aware of your job opening.
+        li
+            | If you have paid for a shortlist of interested candidates,
+            span(class="emphasis")  it's already on its way.
+        li
+            | Otherwise if you want us to help us in that process and get their commitment,
+            span(class="emphasis")  contact our sales team at
+            = ' '
+            a(href='mailto:solutions@visage.ae') solutions@visage.ae

@@ -1,0 +1,11 @@
+extends  ../../../layout
+
+block content
+    h2 Thank you for working on this job !
+    h3 #{job.title}
+    p This role has now been closed to further CV submission.
+    a(target="_blank",href=jobsRecBaseURL + "/" + job._id, class="button")  Review the job
+    p You must disqualify any CV that will be submitted after this email with the following comment "Maximum number of candidates reached"
+    p Any CV validated from now on will not be considered.
+    p
+    p Kind Regards

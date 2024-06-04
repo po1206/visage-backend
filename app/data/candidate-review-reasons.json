@@ -1,0 +1,16 @@
+{
+  "DISQUALIFY": {
+    "UNFIT_EXP": "Candidate has no relevant experience",
+    "NO_QUALIF": "Candidate has no relevant qualifications",
+    "SENIORITY": "Candidate has not enough or too much experience",
+    "INCOMPLETE_CV": "Candidate CV is too old or incomplete",
+    "WRONG_LANGUAGE_CV": "Candidate CV is not in english",
+    "CONFLICT": "Candidate is already working or has previously worked with the client",
+    "DUPLICATE": "Candidate has already been submitted for this job",
+    "FAKE": "Candidate seems suspicious"
+  },
+  "QUALIFY": {
+  },
+  "OUTSTANDING": {
+  }
+}

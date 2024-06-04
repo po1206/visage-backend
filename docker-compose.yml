@@ -1,0 +1,45 @@
+version: '2'
+services:
+  elasticsearch:
+    image: elasticsearch:2.3.5
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    command: elasticsearch
+  mongodata:
+    image: mongo:latest
+    volumes:
+      - /data/db
+    command: --break-mongo
+  mongo-visage:
+    image: mongo:latest
+    depends_on:
+      - mongodata
+    volumes_from:
+      - mongodata
+    expose:
+      - "27017"
+    ports:
+      - "27017:27017"
+    command: "--smallfiles"
+  web:
+    build: .
+    volumes:
+      - ./app:/usr/src/app
+    expose:
+      - 3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo-visage
+      - elasticsearch
+    links:
+      - mongo-visage
+      - elasticsearch
+    command: bash -c "npm install -g nodemon && nodemon -L "
+    environment:
+      - NODE_PATH=/usr/src
+      - PORT=3000
+      - AWS_ACCESS_KEY_ID=AKIAJPO7TGPYP6YCK5DA
+      - AWS_SECRET_ACCESS_KEY=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
+      - LOCAL_EMAIL_TO=${LOCAL_EMAIL_TO}

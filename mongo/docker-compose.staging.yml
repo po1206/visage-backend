@@ -1,0 +1,16 @@
+mongo-visage:
+  image: mongo:3.2
+  ports:
+    - 32679:27017
+  command:
+    - "--smallfiles"
+
+elasticsearch:
+  image: visage/visage-es:v5
+  ports:
+    - 32680:9200
+    - 32681:9300
+  command: elasticsearch
+  environment:
+    - VISAGE_USER_NAME={{STAGING_VISAGE_ES_USER_NAME}}
+    - VISAGE_USER_PWD={{STAGING_VISAGE_ES_USER_PWD}}

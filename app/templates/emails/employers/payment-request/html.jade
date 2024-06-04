@@ -1,0 +1,30 @@
+extends  ../../../layout
+
+block content
+    p You have one awaiting payment
+    table
+        tr
+            td(class="first-column") #{receipt.details.productLabel}
+            td
+            td USD #{receipt.details.price}
+
+        if receipt.details.discount
+            tr
+                td(class="first-column") #{receipt.details.discountLabel}
+                td #{Math.round((receipt.details.discount / receipt.details.price) * 10000) / 100} %
+                td USD #{receipt.details.discount}
+
+            tr
+                td(class="first-column") Total
+                td
+                td USD #{receipt.details.price - receipt.details.discount}
+    p
+        | You can pay online on our platform or offline by contacting us at
+        a(href='mailto:team@visage.ae')  team@visage.ae
+        | .
+    a(target="_blank",href=urlCheckout, class="button") Pay online
+    p Keep in mind that Visage will never save your card information. The full payment process is handled by a recognized and reliable payment gateway.
+    p
+        | Do not hesitate to ask us if you have questions about the payment. Contact us at
+        a(href='mailto:team@visage.ae')  team@visage.ae
+        | .

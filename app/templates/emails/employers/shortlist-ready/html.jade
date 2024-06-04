@@ -1,0 +1,17 @@
+extends  ../../../layout
+
+block content
+    p New candidates are waiting for you!
+    a(target="_blank" href=jobsEmpBaseURL + "/" + job._id + "/candidates/Shortlisted", class="button")  Review your shortlist
+    p Use the message button to ask them questions and request interview.
+    h3
+        | You can provide a feedback for each candidate by contacting us at
+        = ' '
+        a(href='mailto:team@visage.ae') team@visage.ae
+        | .
+
+    p
+        | If you have any trouble reviewing the shortlist, contact our support directly in app with the live chat feature or reach out at
+        = ' '
+        a(href='mailto:team@visage.ae')  team@visage.ae
+        | .

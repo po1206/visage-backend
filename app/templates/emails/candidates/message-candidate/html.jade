@@ -1,0 +1,14 @@
+extends  ../../../layout
+
+block content
+    h3 Good news ! An employer wants to get in touch with you !
+    p Please reply on this email address : #{origin}
+    ul
+        li
+            span employer: #{client.name}
+        li
+            span candidate: #{candidate.name}
+
+    p --
+    p #{message}
+    p --

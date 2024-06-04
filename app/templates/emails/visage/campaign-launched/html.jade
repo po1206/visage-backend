@@ -1,0 +1,12 @@
+extends  ../../../layout
+
+block content
+    p Campaign for this job has been launched :
+    p #{job.title}
+        a(href=jobsBOBaseURL + "/" + job._id)  #{jobsBOBaseURL}/#{job._id}
+    p The following recruiters have been notified:
+    ul
+    for recruiter in recruiters
+        li
+            p #{recruiter.name} #{recruiter.email}
+

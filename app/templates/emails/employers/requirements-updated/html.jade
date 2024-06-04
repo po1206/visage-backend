@@ -1,0 +1,75 @@
+extends  ../../../layout
+
+block content
+    p We just updated your candidates requirements in order to refine the search
+    br
+    p Here is a list of modifications :
+    if job.requirementsUpdates[job.requirementsUpdates.length - 1].diffs.length > 0
+        -var skillsDiffs = []
+        -var otherDiffs = []
+        -var attributeTitle
+        each diff in job.requirementsUpdates[job.requirementsUpdates.length - 1].diffs
+            if diff.path[0] === "skills"
+                - skillsDiffs.push(diff)
+            else
+                - otherDiffs.push(diff)
+
+        if otherDiffs.length > 0
+            table
+                thead
+                    tr
+                        th
+                        th Before
+                        th Now
+                tbody
+                    each diff in job.requirementsUpdates[job.requirementsUpdates.length - 1].diffs
+                        -var attributeTitle = null
+                        case diff.path[0]
+                            when "candidateDescription"
+                                - attributeTitle ="Priorities"
+                            when "resLocation"
+                                - attributeTitle ="Residence location"
+                            when "gender"
+                                - attributeTitle ="Gender"
+                            when "nationality"
+                                - attributeTitle ="Nationality"
+                            when "language"
+                                - attributeTitle ="Spoken languages"
+                            when "jobTitle"
+                                - attributeTitle ="Job title"
+                            when "yearsExp"
+                                - attributeTitle ="Years of experience"
+                            when "employer"
+                                - attributeTitle ="Former employer"
+                            when "workExp"
+                                - attributeTitle ="Former work experience"
+                            when "location"
+                                - attributeTitle ="Former work location"
+                            when "major"
+                                - attributeTitle ="Major"
+                            when "degree"
+                                - attributeTitle ="Degree"
+                            when "salary"
+                                - attributeTitle ="Salary"
+
+                        if attributeTitle !== null
+                            tr
+                                td
+                                    span(class="emphasis") #{attributeTitle}
+                                td= diff.lhs
+                                td= diff.rhs
+
+        if skillsDiffs.length > 0
+            p The required skills have been modified as well and are now as the following :
+            p
+                span(class="emphasis") Skills :
+                span  #{job.requirements.skills.join(', ')}
+
+
+    br
+    a(target="_blank" href=jobsEmpBaseURL + "/" + job._id, class="button")  Review your job
+    br
+    p
+        | If you don't agree with these modifications please let us know by contacting the team at
+        a(href='mailto:team@visage.ae')  team@visage.ae
+        | .

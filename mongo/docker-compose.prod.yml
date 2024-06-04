@@ -1,0 +1,28 @@
+mongo-data:
+  image: mongo:3.2
+  volumes:
+    - "/data/db:/data/db"
+  command:
+    - "bash"
+    - "-c"
+    - "mkdir -p /data/local/db && mongod --dbpath /data/local/db"
+
+mongo-visage:
+  image: mongo:3.2
+  volumes_from:
+    - mongo-data
+  ports:
+    - 32679:27017
+  command:
+    - "--smallfiles"
+    - "--auth"
+
+elasticsearch:
+  image: visage/visage-es:v5
+  ports:
+    - 32680:9200
+    - 32681:9300
+  command: elasticsearch
+  environment:
+    - VISAGE_USER_NAME={{PROD_VISAGE_ES_USER_NAME}}
+    - VISAGE_USER_PWD={{PROD_VISAGE_ES_USER_PWD}}

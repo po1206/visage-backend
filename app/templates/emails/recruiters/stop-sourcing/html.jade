@@ -1,0 +1,10 @@
+extends  ../../../layout
+
+block content
+    h2 Thank you for working on this job !
+    h3 #{job.title}
+    p Please be aware that this role has now been closed to further CV submission.
+    p Any CV submitted from now on will not be considered.
+    a(target="_blank",href=jobsRecBaseURL + "/" + job._id, class="button")  Review the job
+    p
+    p Kind Regards

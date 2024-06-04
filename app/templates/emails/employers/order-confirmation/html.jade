@@ -1,0 +1,28 @@
+extends  ../../../layout
+
+block content
+    p Just to let you know that we have received your payment. Please find your receipt below :
+    table
+        thead
+            td Product
+            td
+            td Total Price
+        tr
+            td(class="first-column") #{receipt.productLabel}
+            td
+            td USD #{receipt.price}
+
+        if receipt.discount
+            tr
+                td(class="first-column") #{receipt.discountLabel}
+                td #{Math.round((receipt.discount / receipt.price) * 10000) / 100} %
+                td USD #{receipt.discount}
+
+            tr
+                td(class="first-column") Total
+                td
+                td USD #{receipt.price - receipt.discount}
+
+    p Paid on : #{paidOn}
+
+    p Thank you for requesting our services ! Your shortlist of talent is on its way.

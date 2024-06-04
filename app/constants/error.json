@@ -1,0 +1,18 @@
+{
+  "Code" : {
+    "TOO_MANY_RESULTS" : "001",
+    "EXISTING_CANDIDATE" : "002",
+    "MAX_SUBMISSION" : "003",
+    "CANDIDATE_EMAIL_VALIDATION_FAIL" : "004",
+    "MISSING_PARAMETER" : "00A",
+    "NOT_FOUND" : "00B"
+  },
+  "Message" : {
+    "NOT_FOUND" : "The page you requested was not found",
+    "TOO_MANY_RESULTS" : "The search request has returned too many results",
+    "MISSING_PARAMETER" : "Missing parameter",
+    "EXISTING_CANDIDATE" : "This candidate has already been sourced for this opportunity",
+    "MAX_SUBMISSION" : "Maximum submissions reached for this position",
+    "CANDIDATE_EMAIL_VALIDATION_FAIL": "Candidate email validation failed"
+  }
+}

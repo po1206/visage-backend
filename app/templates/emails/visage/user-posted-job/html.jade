@@ -1,0 +1,15 @@
+extends  ../../../layout
+
+block content
+    h3 Contact :
+    ul
+        li Visage profile :
+            a(href=visageProfile) #{visageProfile}
+        li Authentication infos :
+            a(href=authLink) #{authLink}
+    h3 Jobs :
+    ul
+    for job in jobs
+        li
+            p #{job.title}
+                a(href=jobsBOBaseURL + "/" + job._id)  #{jobsBOBaseURL}/#{job._id}

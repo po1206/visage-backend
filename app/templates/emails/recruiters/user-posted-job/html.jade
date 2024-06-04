@@ -1,0 +1,12 @@
+extends  ../../../layout
+
+block content
+    h2 A new opening is available !
+    h3 #{job.title}
+    p We have a new Role which we would like you to work for us. Please review carefully the full Job Description and Requirements and then indicate your interest by claiming the role. You will then receive an invitation email to be able to submit candidates for this opening.
+    h4 Do not claim the job if you don't have any suitable candidate to refer.
+    a(target="_blank",href=jobsRecBaseURL + "/" + job._id, class="button")  Review the job
+    p
+        | Should you notice anything wrong or have any feedback about the app, please email us to
+        a(href='mailto:recruiters.support@visage.ae')  recruiters.support@visage.ae
+    p Kind Regards

@@ -1,0 +1,25 @@
+extends  ../../../layout
+
+block content
+    p We have sourced a sample profiles for you to review to perfectly understand what are the profiles you are looking for. We need your feedback on those candidates to refine our search.
+    a(target="_blank" href=jobsEmpBaseURL + "/" + job._id + "/candidates/", class="button")  Review sample
+    p
+        | Once you have given your feedback on every candidates, we will start the campaign.
+
+    h3
+        span(class="critical") Important:
+    ul
+        li
+            | This is for calibration purpose only.
+            span(class="emphasis")  Some profiles might be irrelevant
+            |  this is perfectly normal. The purpose is to have a wide range of different candidates to better understand your needs.
+
+        li
+            | These candidates
+            span(class="emphasis")  shouldn't be contacted yet.
+            |  You'll be able to contact the suitable ones once we deliver the full list.
+
+        li
+            | Should you notice anything wrong or if you would like to change your requirements, contact us directly at
+            = ' '
+            a(href='mailto:team.support@visage.ae') team@visage.ae

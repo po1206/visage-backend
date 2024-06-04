@@ -1,0 +1,9 @@
+extends  ../../../layout
+
+block content
+    p The following job's calibration has been validated by the client :
+    p #{job.title}
+        a(href=jobsBOBaseURL + "/" + job._id)  #{jobsBOBaseURL}/#{job._id}
+    p
+        | The campaign for this job has been launched, you can start inviting recruiters by going on the campaign tab and
+        |  switching the sourcing button on
